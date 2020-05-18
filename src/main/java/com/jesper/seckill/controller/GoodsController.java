@@ -50,6 +50,7 @@ public class GoodsController {
      * QPS:433
      * 1000 * 10
      */
+//    手动渲染页面，然后将页面添加到redis服务器中，做成页面缓存的功能。
     @RequestMapping(value = "/to_list", produces = "text/html")
     @ResponseBody
     public String list(HttpServletRequest request, HttpServletResponse response, Model model, User user) {
@@ -60,6 +61,7 @@ public class GoodsController {
             return html;
         }
         List<GoodsVo> goodsList = goodsService.listGoodsVo();
+//        1.往前台传数据，可以传对象，可以传List，通过el表达式 ${}可以获取到，
         model.addAttribute("user", user);
         model.addAttribute("goodsList", goodsList);
 

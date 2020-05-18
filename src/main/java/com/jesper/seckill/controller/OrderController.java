@@ -43,6 +43,7 @@ public class OrderController {
         if(user == null) {
             return Result.error(CodeMsg.SESSION_ERROR);
         }
+        System.out.printf("AAAA"+user.getPassword());
         OrderInfo order = orderService.getOrderById(orderId);
         if(order == null) {
             return Result.error(CodeMsg.ORDER_NOT_EXIST);
@@ -52,6 +53,7 @@ public class OrderController {
         OrderDetailVo vo = new OrderDetailVo();
         vo.setOrder(order);
         vo.setGoods(goods);
+        vo.setUser(user);
         return Result.success(vo);
     }
 
