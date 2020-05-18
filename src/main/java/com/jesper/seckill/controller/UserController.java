@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.Map;
+import java.util.HashMap;
+
+import java.awt.image.ImageProducer;
 
 /**
  * Created by jiangyunxiong on 2018/5/23.
@@ -20,12 +24,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    RedisService redisService;
+//    @Autowired
+//    RedisService redisService;
 
     @RequestMapping("/info")
     @ResponseBody
     public Result<User> info(Model model, User user) {
+        model.addAttribute("user", user);
         return Result.success(user);
     }
 }

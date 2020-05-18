@@ -131,7 +131,11 @@ public class GoodsController {
      */
     @RequestMapping(value = "/detail/{goodsId}")
     @ResponseBody
-    public Result<GoodsDetailVo> detail(HttpServletRequest request, HttpServletResponse response, Model model, User user, @PathVariable("goodsId") long goodsId) {
+    public Result<GoodsDetailVo> detail(HttpServletRequest request,
+                                        HttpServletResponse response,
+                                        Model model,
+                                        User user,
+                                        @PathVariable("goodsId") long goodsId) {
 
         //根据id查询商品详情
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
